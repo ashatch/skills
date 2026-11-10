@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+dry_run=false
+case "$#" in
+  0) ;;
+  1)
+    if [[ "$1" == "--dry-run" ]]; then
+      dry_run=true
+    else
+      printf 'Usage: %s [--dry-run]\n' "$0" >&2
+      exit 2
+    fi
+    ;;
+  *)
+    printf 'Usage: %s [--dry-run]\n' "$0" >&2
+    exit 2
+    ;;
+esac
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(cd -- "$script_dir/.." && pwd)"
+skills_root="${HOME:?HOME must be set}/.agents/skills"
+
+first_skill="$(find "$repo_root" -type d -name .git -prune -o -type f -name SKILL.md -print -quit)"
+if [[ -z "$first_skill" ]]; then
+  printf 'No SKILL.md files found under %s\n' "$repo_root" >&2
+  exit 1
+fi
+
+if [[ "$dry_run" == true ]]; then
+  if [[ ! -d "$skills_root" ]]; then
+    printf 'Would create directory: %s\n' "$skills_root"
+  fi
+else
+  mkdir -p "$skills_root"
+fi
+
+find "$repo_root" -type d -name .git -prune -o -type f -name SKILL.md -print0 |
+  while IFS= read -r -d '' skill_file; do
+    skill_dir="${skill_file%/SKILL.md}"
+    skill_name="${skill_dir##*/}"
+    link_path="$skills_root/$skill_name"
+
+    if [[ -L "$link_path" ]]; then
+      if [[ "$(readlink "$link_path")" == "$skill_dir" ]]; then
+        printf 'Already linked: %s\n' "$skill_name"
+        continue
+      fi
+      printf 'Refusing to replace existing symlink: %s\n' "$link_path" >&2
+      exit 1
+    fi
+
+    if [[ -e "$link_path" ]]; then
+      printf 'Refusing to replace existing path: %s\n' "$link_path" >&2
+      exit 1
+    fi
+
+    if [[ "$dry_run" == true ]]; then
+      printf 'Would link %s -> %s\n' "$link_path" "$skill_dir"
+    else
+      ln -s "$skill_dir" "$link_path"
+      printf 'Linked %s -> %s\n' "$link_path" "$skill_dir"
+    fi
+  done
