@@ -4,4 +4,4 @@ Keep the README limited to introductory information about this repository and a 
 
 # Writing skills
 
-Follow the [skill-authoring](../skill-authoring/SKILL.md) skill when creating or revising skills.
+Follow the [skill-authoring](../skills/skill-authoring/SKILL.md) skill when creating or revising skills.
