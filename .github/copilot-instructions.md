@@ -1,6 +1,6 @@
 # Updating the project README.md
 
-Keep the README limited to introductory information about this repository and a table listing the current skills. Give each skill a very brief summary of its purpose; use the skill's front-matter description directly when available. Update the table whenever the set of skills changes.
+Keep the README limited to introductory information about this repository and a table listing the current skills. Give each skill a very brief summary of its purpose; use the skill's front-matter description directly when available. Update the table whenever the set of skills changes, and sort its rows alphabetically by skill name.
 
 # Writing skills
 
