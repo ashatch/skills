@@ -7,11 +7,8 @@ A collection of skills for AI agents, built to support my own work and shared he
 | Skill | Summary |
 | --- | --- |
 | [default-frontend-project](skills/default-frontend-project/SKILL.md) | Scaffold quick frontend apps with Node.js, TypeScript, Vite, React, and Mantine, preferring pnpm and dark mode for new projects. Use when asked to make a quick front end, prototype, or small web UI, especially when no stack is specified. |
+| [issue-tracker](skills/issue-tracker/SKILL.md) | Track and manage project issues in GitHub Issues, Jira, or a structured Markdown issue folder. Use when creating, triaging, updating, or closing project work; follow the tracker declared in project instructions. |
 | [implement](skills/implement/SKILL.md) | Implement requested software changes by inspecting the project, making focused edits, and verifying behavior. Use when asked to build, modify, or fix code. |
 | [research](skills/research/SKILL.md) | Plan and conduct research on any topic — not just academic literature — by defining a question, sourcing and screening evidence, evaluating it, and writing findings as a private, local Open Knowledge Format (OKF) bundle with tracked source links and access dates. Use when researching a topic, building a personal or team knowledge base from research, or asked to save findings as structured Markdown notes. |
 | [skill-authoring](skills/skill-authoring/SKILL.md) | Guides writing Agent Skills, covering SKILL.md frontmatter, directory structure, instruction style, supporting files, and validation with skills-ref. Use when creating, revising, or reviewing a skill or its SKILL.md. |
 | [tdd](skills/tdd/SKILL.md) | Guides test-driven development (write a failing test, make it pass, refactor) for production code changes. Use when changing behavior that needs durable, provable test coverage, such as features and bug fixes; skip for exploratory work. |
-
-## Skill ideas
-
-- **git-issue-tracker** — For collaboration on open-source projects, use Git instead of a hosted issue tracker by representing issues (tasks, stories, etc.) as Markdown documents in a structured directory layout. Could leverage the OKF format.
