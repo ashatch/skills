@@ -15,13 +15,8 @@ Add a node to the concept map that represents the topic with a label. Proceed in
 
 ## Each iteration
 
-Add to the shared understanding via questions: 
-
-```
-❓ **<node label>**: <question>
-
-➡️ <your recommended answer>
-```
+Add to the shared understanding via questions with a recommended default where possible. Always give the option
+to pick something not on the list.
 
 Answers to questions will form new nodes and edges in the concept map, which in turn may raise further unknowns in
 the concept map.
