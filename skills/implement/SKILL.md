@@ -1,9 +1,15 @@
 ---
 name: implement
-description: Implement requested software changes by inspecting the project, making focused edits, and verifying behavior. Use when asked to build, modify, or fix code.
+description: Implement code, tests, and software configuration in repositories whose primary purpose is software. Do not use for content or knowledge-base repositories just because they contain scripts; inspect repository documentation and structure, and ask if its purpose is unclear.
 ---
 
 # Implement software changes
+
+## Check fit
+
+- Determine the repository's primary purpose from its documentation, structure, and project manifests. The presence of scripts or other code alone does not make it a software project.
+- Use this skill only when the repository primarily builds or maintains software. Do not use it for a primarily content or knowledge-base repository, even when the request explicitly asks to change one of its scripts.
+- If repository purpose is unclear or the signals conflict, ask the user before proceeding.
 
 ## Understand the change
 
